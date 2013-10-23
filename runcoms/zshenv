@@ -72,4 +72,3 @@ if [[ -d "$TMPDIR" ]]; then
 fi
 
 export MAIL='imaps://darac@darac.org.uk@mail.darac.org.uk/'
-
