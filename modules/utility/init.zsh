@@ -62,7 +62,7 @@ alias type='type -a'
 # ls
 if is-callable 'dircolors'; then
   # GNU Core Utilities
-  alias ls='ls --group-directories-first'
+  alias ls='ls' # --group-directories-first'
 
   if zstyle -t ':prezto:module:utility:ls' color; then
     if [[ -s "$HOME/.dir_colors" ]]; then
@@ -113,17 +113,17 @@ fi
 # Mac OS X Everywhere
 if [[ "$OSTYPE" == darwin* ]]; then
   alias o='open'
-elif [[ "$OSTYPE" == cygwin* ]]; then
-  alias o='cygstart'
-  alias pbcopy='tee > /dev/clipboard'
-  alias pbpaste='cat /dev/clipboard'
+  alias get='curl --continue-at - --location --progress-bar --remote-name --remote-time'
 else
   alias o='xdg-open'
+  alias get='wget --continue --progress=bar --timestamping'
 
   if (( $+commands[xclip] )); then
     alias pbcopy='xclip -selection clipboard -in'
     alias pbpaste='xclip -selection clipboard -out'
-  elif (( $+commands[xsel] )); then
+  fi
+
+  if (( $+commands[xsel] )); then
     alias pbcopy='xsel --clipboard --input'
     alias pbpaste='xsel --clipboard --output'
   fi
@@ -131,13 +131,6 @@ fi
 
 alias pbc='pbcopy'
 alias pbp='pbpaste'
-
-# File Download
-if (( $+commands[curl] )); then
-  alias get='curl --continue-at - --location --progress-bar --remote-name --remote-time'
-elif (( $+commands[wget] )); then
-  alias get='wget --continue --progress=bar --timestamping'
-fi
 
 # Resource Usage
 alias df='df -kh'
