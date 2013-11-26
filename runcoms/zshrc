@@ -41,11 +41,7 @@ export EDITOR=vim
 export VISUAL=vim
 export PAGER=most
 
-if [[ -s "/home/darac/.config/powerline/powerline-with-client.zsh" ]]; then
-	path+=/home/darac/.local/bin/
-	export PATH
-	source "/home/darac/.config/powerline/powerline-with-client.zsh"
-elif [[ -s "/home/darac/.local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh" ]]; then
+if [[ -s "/home/darac/.local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh" ]]; then
 	path+=/home/darac/.local/bin/
 	export PATH
 	source "/home/darac/.local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh"
