@@ -31,7 +31,8 @@ zstyle ':prezto:load' pmodule \
   'directory' \
   'spectrum' \
   'utility' \
-  'gpg-agent' \
+  'gpg' \
+  'ssh' \
   'completion' \
   'git' \
   'ssh' \
