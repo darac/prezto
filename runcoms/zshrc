@@ -5,9 +5,32 @@
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
 #
 
+if [ "$COLORTERM" = "xfce4-terminal" ]; then
+	export TERM=xterm-256color
+fi
+
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
 # Customize to your needs...
+export EDITOR=vim
+export VISUAL=vim
+export PAGER=most
+
+if [[ -s "/home/darac/.local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh" ]]; then
+	path+=/home/darac/.local/bin/
+	export PATH
+	source "/home/darac/.local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh"
+fi
+
+
+## VirtualEnvWrapper stuff
+if [[ -s "/etc/bash_completion.d/virtualenvwrapper" ]]; then
+	export WORKON_HOME=$HOME/.virtualenvs
+	if [[ ! -d $WORKON_HOME ]]; then
+		mkdir -p $WORKON_HOME
+	fi
+	source "/etc/bash_completion.d/virtualenvwrapper"
+fi
