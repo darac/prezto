@@ -31,6 +31,8 @@ zstyle ':prezto:load' pmodule \
   'directory' \
   'spectrum' \
   'utility' \
+  'gpg' \
+  'ssh' \
   'completion' \
   'git' \
   'ssh' \
@@ -108,7 +110,7 @@ zstyle ':prezto:module:gpg-agent' ssh-support 'yes'
 # zstyle ':prezto:module:ssh-agent' forwarding 'yes'
 
 # Set ssh-agent identities to load.
-# zstyle ':prezto:module:ssh-agent' identities 'id_rsa' 'id_rsa2' 'id_github'
+zstyle ':prezto:module:ssh-agent' identities 'id_rsa' 'id_rsa2' 'id_github' 'id_ecdsa'
 
 #
 # Syntax Highlighting

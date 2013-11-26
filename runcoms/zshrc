@@ -18,20 +18,19 @@ fi
 export EDITOR=vim
 export VISUAL=vim
 export PAGER=most
-setopt interactivecomments
 
-if [[ -s "/usr/share/powerline/bindings/zsh/powerline.zsh" ]]; then
-	source "/usr/share/powerline/bindings/zsh/powerline.zsh" 
-elif [[ -s "/home/darac/.local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh" ]]; then
+if [[ -s "/home/darac/.local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh" ]]; then
 	path+=/home/darac/.local/bin/
 	export PATH
-	if [[ -x /home/darac/.local/bin/powerline-client ]]; then
-		export POWERLINE_COMMAND=powerline-client
-	fi
 	source "/home/darac/.local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh"
 fi
 
 
-if [[ -x /usr/bin/keychain ]]; then
-	eval $(/usr/bin/keychain -q --eval id_rsa github_id_rsa CC9A6F67)
+## VirtualEnvWrapper stuff
+if [[ -s "/etc/bash_completion.d/virtualenvwrapper" ]]; then
+	export WORKON_HOME=$HOME/.virtualenvs
+	if [[ ! -d $WORKON_HOME ]]; then
+		mkdir -p $WORKON_HOME
+	fi
+	source "/etc/bash_completion.d/virtualenvwrapper"
 fi
