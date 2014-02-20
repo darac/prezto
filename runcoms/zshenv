@@ -61,3 +61,4 @@ if (( $+commands[lesspipe.sh] )); then
 fi
 
 export MAIL='imaps://darac@darac.org.uk@mail.darac.org.uk/'
+export BROWSER='/usr/bin/elinks'
