@@ -208,7 +208,11 @@ zstyle ':prezto:module:prompt' theme 'sorin'
 #
 
 # Auto start a session when Zsh is launched in a local terminal.
+<<<<<<< HEAD
 # zstyle ':prezto:module:tmux:auto-start' local 'yes'
+=======
+zstyle ':prezto:module:tmux:auto-start' local 'yes'
+>>>>>>> Update changes
 
 # Auto start a session when Zsh is launched in a SSH connection.
 # zstyle ':prezto:module:tmux:auto-start' remote 'yes'
