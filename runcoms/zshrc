@@ -11,5 +11,20 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Customize to your needs...
-PAGER=most
-EDITOR=vim
+export EDITOR=vim
+export VISUAL=vim
+export PAGER=most
+
+if [[ -s "/home/darac/.config/powerline/powerline-with-client.zsh" ]]; then
+	path+=/home/darac/.local/bin/
+	export PATH
+	source "/home/darac/.config/powerline/powerline-with-client.zsh"
+elif [[ -s "/home/darac/.local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh" ]]; then
+	path+=/home/darac/.local/bin/
+	export PATH
+	source "/home/darac/.local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh"
+fi
+
+if [[ -x /usr/bin/tmux && -z "$TMUX" ]]; then
+    tmux -2 attach || tmux -2 new; exit
+fi
