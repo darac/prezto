@@ -11,3 +11,4 @@ if [[ "$SHLVL" -eq 1 && ! -o LOGIN && -s "${ZDOTDIR:-$HOME}/.zprofile" ]]; then
 fi
 
 export MAIL='imaps://darac@darac.org.uk@mail.darac.org.uk/'
+export BROWSER='/usr/bin/elinks'
