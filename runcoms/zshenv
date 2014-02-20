@@ -11,3 +11,4 @@ if [[ "$SHLVL" -eq 1 && ! -o LOGIN && -s "${ZDOTDIR:-$HOME}/.zprofile" ]]; then
 fi
 
 export MPD_HOST=fowler
+export LIBVIRT_DEFAULT_URI=qemu+ssh://darac@crush/system
