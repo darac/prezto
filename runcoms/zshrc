@@ -12,3 +12,11 @@ fi
 
 # Customize to your needs...
 
+if [[ -s "$HOME/.local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh" ]];  then
+	path+=$HOME/.local/bin/
+	export PATH
+    if [[ -x $HOME/.local/bin/powerline-client ]]; then
+	export POWERLINE_COMMAND=powerline-client
+    fi
+	source "$HOME/.local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh"
+fi 
