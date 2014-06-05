@@ -14,16 +14,17 @@ fi
 export EDITOR=vim
 export VISUAL=vim
 export PAGER=most
+setopt interactivecomments
 
 if [[ -s "/home/darac/.local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh" ]]; then
-	if [[ -x "/home/darac/.local/bin/powerline-client" ]]; then
-		export POWERLINE_COMMAND=/home/darac/.local/bin/powerline-client
-	fi
 	path+=/home/darac/.local/bin/
 	export PATH
+	if [[ -x /home/darac/.local/bin/powerline-client ]]; then
+		export POWERLINE_COMMAND=powerline-client
+	fi
 	source "/home/darac/.local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh"
 fi
 
-if [[ -x /usr/bin/tmux && -z "$TMUX" ]]; then
-    tmux -2 attach || tmux -2 new; exit
-fi
+#if [[ -x /usr/bin/tmux && -z "$TMUX" ]]; then
+#    tmux -2 attach || tmux -2 new; exit
+#fi
