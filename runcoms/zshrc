@@ -41,6 +41,7 @@ export EDITOR=vim
 export VISUAL=vim
 export PAGER=most
 setopt interactivecomments
+stty -ixon	# Disable Ctrl+S/Ctrl+Q Flow Control
 
 if [[ -s "/home/darac/.local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh" ]]; then
 	path+=/home/darac/.local/bin/
@@ -62,5 +63,5 @@ if [[ -s "/etc/bash_completion.d/virtualenvwrapper" ]]; then
 fi
 
 if [[ -x /usr/bin/keychain ]]; then
-	eval $(/usr/bin/keychain -q --eval id_rsa github_id_rsa CC9A6F67)
+	eval $(/usr/bin/keychain -q --eval id_ecdsa id_rsa github_id_rsa CC9A6F67 --inherit any-once)
 fi
