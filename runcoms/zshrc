@@ -27,10 +27,6 @@ if [ "$TERM" = "linux" ]; then
 		clear #for background artifacting
 fi
 
-if [ "$COLORTERM" = "xfce4-terminal" ]; then
-	export TERM=xterm-256color
-fi
-
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
@@ -40,10 +36,13 @@ fi
 export EDITOR=vim
 export VISUAL=vim
 export PAGER=most
+export LIBVIRT_DEFAULT_URI=qemu+ssh://darac@crush/system
 setopt interactivecomments
 stty -ixon	# Disable Ctrl+S/Ctrl+Q Flow Control
 
-if [[ -s "/home/darac/.local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh" ]]; then
+if [[ -s "/usr/share/powerline/binding/zsh/powerline.zsh" ]]; then
+	source "/usr/share/powerline/bindings/zsh/powerline.zsh"
+elif [[ -s "/home/darac/.local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh" ]]; then
 	path+=/home/darac/.local/bin/
 	export PATH
 	if [[ -x /home/darac/.local/bin/powerline-client ]]; then
@@ -51,7 +50,6 @@ if [[ -s "/home/darac/.local/lib/python2.7/site-packages/powerline/bindings/zsh/
 	fi
 	source "/home/darac/.local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh"
 fi
-
 
 ## VirtualEnvWrapper stuff
 if [[ -s "/etc/bash_completion.d/virtualenvwrapper" ]]; then
@@ -64,4 +62,8 @@ fi
 
 if [[ -x /usr/bin/keychain ]]; then
 	eval $(/usr/bin/keychain -q --eval id_ecdsa id_rsa github_id_rsa CC9A6F67 --inherit any-once)
+fi
+
+if [[ -x /usr/bin/rbenv ]]; then
+		eval "$(rbenv init -)"
 fi
