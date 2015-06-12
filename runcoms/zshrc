@@ -2,10 +2,6 @@
 # Executes commands at the start of an interactive session.
 #
 
-if [ "$COLORTERM" = "xfce4-terminal" ]; then
-	export TERM=xterm-256color
-fi
-
 if [ "$TERM" = "linux" ]; then
 		# 256-colour solarized
 		echo -en "\e]P0073642" #black
@@ -27,6 +23,9 @@ if [ "$TERM" = "linux" ]; then
 		clear #for background artifacting
 fi
 
+# Start Powerline Daemon
+[[ -x /usr/bin/powerline-daemon ]] && /usr/bin/powerline-daemon -q
+
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
@@ -36,9 +35,17 @@ fi
 export EDITOR=vim
 export VISUAL=vim
 export PAGER=most
+
+export MANPAGER="/bin/sh -c \"unset PAGER;col -b -x | \
+    vim -R -c 'set ft=man nomod nolist' -c 'map q :q<CR>' \
+    -c 'map <SPACE> <C-D>' -c 'map b <C-U>' \
+    -c 'nmap K :Man <C-R>=expand(\\\"<cword>\\\")<CR><CR>' -\""
+
 export LIBVIRT_DEFAULT_URI=qemu+ssh://darac@crush/system
 setopt interactivecomments
 stty -ixon	# Disable Ctrl+S/Ctrl+Q Flow Control
+
+alias fuck='sudo $(fc -ln -1)'
 
 if [[ -s "/usr/share/powerline/bindings/zsh/powerline.zsh" ]]; then
 	source "/usr/share/powerline/bindings/zsh/powerline.zsh"
