@@ -35,8 +35,6 @@ zstyle ':prezto:load' pmodule \
   'ssh' \
   'completion' \
   'git' \
-  'gpg' \
-  'ssh' \
   'python' \
   'tmux' \
   'syntax-highlighting' \
