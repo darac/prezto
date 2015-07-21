@@ -18,6 +18,9 @@ fi
 export EDITOR=vim
 export VISUAL=vim
 export PAGER=most
+export ftp_proxy=http://winterwolf.co.uk:8080/
+export http_proxy=http://winterwolf.co.uk:8080/
+export https_proxy=http://winterwolf.co.uk:8080/
 setopt interactivecomments
 
 if [[ -s "/usr/share/powerline/bindings/zsh/powerline.zsh" ]]; then
