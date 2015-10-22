@@ -37,7 +37,7 @@ export VISUAL=vim
 export PAGER=most
 
 export MANPAGER="/bin/sh -c \"unset PAGER;col -b -x | \
-    vim -R -c 'set ft=man nomod nolist' -c 'map q :q<CR>' \
+    vim -R -c 'set ft=man nomod nolist hlsearch' -c 'map q :q<CR>' \
     -c 'map <SPACE> <C-D>' -c 'map b <C-U>' \
     -c 'nmap K :Man <C-R>=expand(\\\"<cword>\\\")<CR><CR>' -\""
 
@@ -59,12 +59,12 @@ elif [[ -s "/home/darac/.local/lib/python2.7/site-packages/powerline/bindings/zs
 fi
 
 ## VirtualEnvWrapper stuff
-if [[ -s "/etc/bash_completion.d/virtualenvwrapper" ]]; then
+if [[ -r "/usr/share/virtualenvwrapper/virtualenvwrapper.sh" ]]; then
 	export WORKON_HOME=$HOME/.virtualenvs
 	if [[ ! -d $WORKON_HOME ]]; then
 		mkdir -p $WORKON_HOME
 	fi
-	source "/etc/bash_completion.d/virtualenvwrapper"
+	source "/usr/share/virtualenvwrapper/virtualenvwrapper.sh"
 fi
 
 #if [[ -x /usr/bin/keychain ]]; then
