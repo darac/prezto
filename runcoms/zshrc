@@ -42,7 +42,7 @@ export PAGER=most
 setopt interactivecomments
 stty -ixon	# Disable Ctrl+S/Ctrl+Q Flow Control
 
-eval $(dircolors /home/darac/solarized/dircolors-solarized/dircolors.ansi-universal)
+eval $(dircolors --sh /home/darac/.dir_colors)
 
 #if [[ -s "/home/darac/.local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh" ]]; then
 #	path+=/home/darac/.local/bin/
