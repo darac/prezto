@@ -48,7 +48,7 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 alias ip='ip -c'
-alias ls='ls -v --color=auto'
+alias ls='ls --color=auto'
 alias fuck='sudo $(fc -ln -1)'
 
 # Customize to your needs...
