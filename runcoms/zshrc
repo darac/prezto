@@ -60,7 +60,7 @@ stty -ixon	# Disable Ctrl+S/Ctrl+Q Flow Control
 
 eval $(dircolors --sh $HOME/.dir_colors)
 
-source "/usr/share/powerline/bindings/zsh/powerline.zsh"
+#source "/usr/share/powerline/bindings/zsh/powerline.zsh"
 
 PATH="/home/ipa/darac/perl5/bin${PATH:+:${PATH}}"; export PATH;
 PERL5LIB="/home/ipa/darac/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
