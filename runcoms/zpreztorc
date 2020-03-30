@@ -43,7 +43,8 @@ zstyle ':prezto:load' pmodule \
   'tmux' \
   'prompt' \
   'syntax-highlighting' \
-  'history-substring-search'
+  'history-substring-search' \
+  'autosuggestions'
 
 #
 # Autosuggestions
@@ -130,7 +131,7 @@ zstyle ':prezto:module:prompt' theme 'powerlevel10k'
 
 # Set the prompt to display the return code along with an indicator for non-zero
 # return codes. This is not supported by all prompts.
-# zstyle ':prezto:module:prompt' show-return-val 'yes'
+zstyle ':prezto:module:prompt' show-return-val 'yes'
 
 #
 # Ruby
@@ -165,6 +166,7 @@ zstyle ':prezto:module:python:virtualenv' auto-switch 'yes'
 
 # Set the SSH identities to load into the agent.
 # zstyle ':prezto:module:ssh:load' identities 'id_rsa' 'id_rsa2' 'id_github'
+zstyle ':prezto:module:ssh:load' identities 'github_id_rsa' 'id_ecdsa' 'id_ed25519' 'id_rsa'
 
 #
 # Syntax Highlighting
