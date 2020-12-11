@@ -24,8 +24,8 @@ following line to *zpreztorc*:
 zstyle ':prezto:module:tmux:auto-start' remote 'yes'
 ```
 
-In both cases, it will create a background session named _prezto_ if the tmux
-server is not started.
+In both cases the tmux server will be started and a background session
+server is not started.	named _prezto_ will be created if a session doesn't already exist.
 
 You can change the default session name with:
 
@@ -41,6 +41,7 @@ in *tmux.conf*:
 ```conf
 set-option -g destroy-unattached [on | off]
 ```
+
 
 #### iTerm2 Integration
 

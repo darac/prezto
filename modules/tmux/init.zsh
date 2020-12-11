@@ -37,8 +37,15 @@ if [[ -z "$TMUX" && -z "$EMACS" && -z "$VIM" && -z "$INSIDE_EMACS" && "$TERM_PRO
       set-option -t "$tmux_session" destroy-unattached off &> /dev/null
   fi
 
-  # Attach to the 'prezto' session or to the last session used. (detach first)
-  exec tmux $_tmux_iterm_integration attach-session -d
+
+  if zstyle -t ':prezto:module:tmux:auto-start' mode shared; then
+      # Attach to the 'prezto' session or to the last session used.
+      exec tmux attach
+  else
+      # Find a session to share windows with.
+      tmux_session=`tmux list-sessions -F '#S' | head -n 1`
+      exec tmux new-session -t "$tmux_session"\; set-option destroy-unattached on
+  fi
 fi
 
 #
