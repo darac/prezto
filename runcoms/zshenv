@@ -13,3 +13,4 @@ fi
 export MPD_HOST=fowler
 export LIBVIRT_DEFAULT_URI=qemu+ssh://darac@crush/system
 export TMOUT=21600	# 6 hours
+export __GL_THREADED_OPTIMIZATIONS=1
