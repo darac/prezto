@@ -38,10 +38,6 @@ BASE16_SHELL="$HOME/.config/base16-shell/"
         eval "$("$BASE16_SHELL/profile_helper.sh")"
 base16_tomorrow-night-eighties
 
-if [ "$(tty)" = "/dev/tty6" ]; then
-	exec nvidia-xrun i3
-fi
-
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
@@ -54,13 +50,11 @@ alias fuck='sudo $(fc -ln -1)'
 # Customize to your needs...
 export EDITOR=vim
 export VISUAL=vim
-export PAGER=vimpager
+export PAGER=nvimpager
 setopt interactivecomments
 stty -ixon	# Disable Ctrl+S/Ctrl+Q Flow Control
 
 eval $(dircolors --sh $HOME/.dir_colors)
-
-#source "/usr/share/powerline/bindings/zsh/powerline.zsh"
 
 PATH="/home/ipa/darac/perl5/bin${PATH:+:${PATH}}"; export PATH;
 PERL5LIB="/home/ipa/darac/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
